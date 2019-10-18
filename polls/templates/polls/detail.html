@@ -1,6 +1,9 @@
-<h1>{{ question.question_text }}</h1>
+{% extends "polls/base.html" %}
 
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+{% block content %}
+
+
+<h1>{{ question.question_text }}</h1>
 
 <form action="{% url 'polls:vote' question.id %}" method="post">
 {% csrf_token %}
@@ -10,3 +13,4 @@
 {% endfor %}
 <input type="submit" value="Vote">
 </form>
+{% endblock %}
